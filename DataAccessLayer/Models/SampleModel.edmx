@@ -47,15 +47,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tblDepartment">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Depar__3F466844" FromRole="tblDepartment" ToRole="tblEmployee" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__tblEmploy__Depar__3F466844" FromRole="tblDepartment" ToRole="tblEmployee" />
         </EntityType>
-        <EntityType Name="tblEmployee">
+        <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmployeeId" />
           </Key>
@@ -64,11 +64,11 @@
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DepartmentId" Type="Int32" />
-          <NavigationProperty Name="tblDepartment" Relationship="Self.FK__tblEmploy__Depar__3F466844" FromRole="tblEmployee" ToRole="tblDepartment" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__tblEmploy__Depar__3F466844" FromRole="tblEmployee" ToRole="tblDepartment" />
         </EntityType>
         <Association Name="FK__tblEmploy__Depar__3F466844">
-          <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
-          <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+          <End Role="tblDepartment" Type="KVModel.Department" Multiplicity="0..1" />
+          <End Role="tblEmployee" Type="KVModel.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblDepartment">
               <PropertyRef Name="Id" />
@@ -79,11 +79,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="KVEntitiesContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblDepartments" EntityType="Self.tblDepartment" />
-          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="Departments" EntityType="KVModel.Department" />
+          <EntitySet Name="Employees" EntityType="KVModel.Employee" />
           <AssociationSet Name="FK__tblEmploy__Depar__3F466844" Association="Self.FK__tblEmploy__Depar__3F466844">
-            <End Role="tblDepartment" EntitySet="tblDepartments" />
-            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblDepartment" EntitySet="Departments" />
+            <End Role="tblEmployee" EntitySet="Employees" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -92,16 +92,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KVModelStoreContainer" CdmEntityContainer="KVEntitiesContext">
-          <EntitySetMapping Name="tblDepartments">
-            <EntityTypeMapping TypeName="KVModel.tblDepartment">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="KVModel.Department">
               <MappingFragment StoreEntitySet="tblDepartment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblEmployees">
-            <EntityTypeMapping TypeName="KVModel.tblEmployee">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="KVModel.Employee">
               <MappingFragment StoreEntitySet="tblEmployee">
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

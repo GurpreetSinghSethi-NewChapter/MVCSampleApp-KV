@@ -12,18 +12,18 @@ namespace DataAccessLayer.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblDepartment
+    public partial class Department
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblDepartment()
+        public Department()
         {
-            this.tblEmployees = new HashSet<tblEmployee>();
+            this.Employees = new HashSet<Employee>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblEmployee> tblEmployees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

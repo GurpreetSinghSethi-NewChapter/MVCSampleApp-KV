@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="432857d172554b7a8d87f9ebefbf52e3" Name="Diagram1">
-        <EntityTypeShape EntityType="KVModel.tblDepartment" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KVModel.tblEmployee" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KVModel.Department" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KVModel.Employee" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="KVModel.FK__tblEmploy__Depar__3F466844" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

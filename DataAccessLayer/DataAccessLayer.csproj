@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>SampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>SampleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SampleModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,12 +74,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SampleModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblDepartment.cs">
-      <DependentUpon>SampleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblEmployee.cs">
-      <DependentUpon>SampleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
