@@ -10,10 +10,11 @@ using DataAccessLayer.Models;
 
 namespace MVCSampleApp.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeeController : Controller
     {
         private KVEntitiesContext db = new KVEntitiesContext();
 
+        //[Authorize]
         // GET: Employees
         public ActionResult Index()
         {

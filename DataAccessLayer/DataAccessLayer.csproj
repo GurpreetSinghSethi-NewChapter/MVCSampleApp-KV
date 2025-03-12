@@ -60,6 +60,7 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>SampleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepartmentMetaData.cs" />
     <Compile Include="Models\SampleModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,7 +89,9 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\MetaData\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Models\SampleModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
